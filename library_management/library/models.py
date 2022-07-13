@@ -5,9 +5,11 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    user_name = models.CharField(max_length=255,null=False)
-    password = models.CharField(max_length=255,null=False)
-    email_id = models.CharField(max_length=255,null=False)
-
+    ROLE_CHOICE = ((1, 'LIBRARIAN'),
+                   (2, 'MEMBER'))
+    user_name = models.CharField(max_length=255, null=False)
+    password = models.CharField(max_length=255, null=False)
+    email_id = models.CharField(max_length=255, null=False)
+    role = models.PositiveIntegerField(choices=ROLE_CHOICE, default=2)
     REQUIRED_FIELDS = []
 
