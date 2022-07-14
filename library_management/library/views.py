@@ -98,7 +98,7 @@ class Removeuser(APIView):
 
 class Viewuser(APIView):
     permission_classes = [IsAuthenticated, Islibrarian]
-    def post(self,request):
+    def get(self,request):
         data = request.data
         user = User.objects.filter(email=data['email'])
         if user.count():
